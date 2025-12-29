@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Family Money Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <button id="theme-toggle" title="Toggle Theme">🌙</button>
+  <div id="user-select">
+    <h1>Family Money Tracker</h1>
+    <p>Select who you are:</p>
+    <button class="user-btn" onclick="selectUser('Charles')">Charles</button>
+    <button class="user-btn" onclick="selectUser('Punitha')">Punitha</button>
+  </div>
+
+  <div id="dashboard" class="hidden">
+    <button id="back-btn" onclick="goBack()">← Change user</button>
+    <h2 id="greeting"></h2>
+
+    <div id="balance-box">
+      Wallet Balance: ₹<span id="wallet-balance">0</span>
+    </div>
+
+    <div id="actions">
+      <button onclick="showForm('EARN')">+ Earn</button>
+      <button onclick="showForm('SPEND')">- Spend</button>
+      <button onclick="showForm('BORROW')">🏦 Borrow</button>
+      <button onclick="showForm('TRANSFER')">⇄ Give Spouse</button>
+    </div>
+
+    <div id="form-container"></div>
+
+    <h3>Recent Transactions</h3>
+    <table id="tx-table">
+      <thead>
+        <tr>
+          <th>Date & Time</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Action</th>
+          <th>Amount</th>
+          <th>Category</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody id="tx-body">
+        <!-- Filled by script.js -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
