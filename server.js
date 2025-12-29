@@ -4,11 +4,11 @@ const fs = require('fs');
 const XLSX = require('xlsx');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const DATA_FILE = path.join(__dirname, 'data.xlsx');
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static("public"));
 
 // Ensure Excel file exists with header row
 function ensureDataFile() {
@@ -127,6 +127,6 @@ app.get('/api/summary/:person', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log("Server running on port", PORT);
   ensureDataFile();
 });
